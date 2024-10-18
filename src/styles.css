@@ -1,21 +1,18 @@
-* {
-  box-sizing: border-box;
+:root {
+  --main-bg: brown;
+  --top-menu-bg: #eee;
+  --sub-menu-bg: #ddd;
 }
 
-/* CSS Custom Properties */
-:root {
-  --main-bg: #4a4e4d;
-  --top-menu-bg: #0e9aa7;
-  --sub-menu-bg: #3da4ab;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: Tahoma, Geneva, sans-serif;
-  height: 100vh;
-  margin: 0;
-  display: grid;
-  grid-template-rows: 3rem auto;
-  color: white;
+  font-family: sans-serif;
+  background-color: var(--main-bg);
 }
 
 .flex-ctr {
@@ -30,14 +27,25 @@ body {
   align-items: center;
 }
 
-nav a {
-  line-height: 3rem;
-  padding: 0 1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
+header, #top-menu {
+  position: relative; 
 }
 
-#top-menu a:hover {
+#top-menu {
+  z-index: 20; 
+}
+
+#sub-menu {
+  width: 100%;
+  z-index: 10; 
+  transition: top 0.5s ease-out; 
+}
+
+#sub-menu a:hover {
+  background-color: var(--top-menu-bg);
+}
+
+nav a.active {
   background-color: var(--sub-menu-bg);
+  color: var(--main-bg);
 }
